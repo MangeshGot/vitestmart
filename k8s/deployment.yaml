@@ -5,7 +5,7 @@ metadata:
   labels:
     app: vitestmart
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: vitestmart
@@ -17,12 +17,15 @@ spec:
       containers:
         - name: vitestmart
           image: mangeshgot/vitestmart:1.0
+          ports:
+            - containerPort: 5000
           env:
-            - name: MONGODB_URI
-              value: "mongodb+srv://mangeshforstudy_db_user:sNdbqYh89gmYIg8L@cluster0.cukhoit.mongodb.net/vitestmart?retryWrites=true&w=majority"
             - name: PORT
               value: "5000"
             - name: NODE_ENV
               value: "production"
-          ports:
-            - containerPort: 5000
+            - name: MONGODB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: vitestmart-secret
+                  key: mongodb-uri
