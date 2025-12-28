@@ -19,3 +19,6 @@ spec:
           image: mangeshgot/vitestmart:1.0
           ports:
             - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: mongodb-configmap
