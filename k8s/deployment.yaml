@@ -19,14 +19,10 @@ spec:
           image: mangeshgot/vitestmart:1.0
           env:
             - name: MONGODB_URI
-              valueFrom:
-                configMapKeyRef:
-                  name: vitestmart-configmap
-                  key: MONGODB_URI
+              value: "mongodb+srv://mangeshforstudy_db_user:sNdbqYh89gmYIg8L@cluster0.cukhoit.mongodb.net/vitestmart?retryWrites=true&w=majority"
             - name: PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: vitestmart-configmap
-                  key: PORT
+              value: "5000"
+            - name: NODE_ENV
+              value: "production"
           ports:
             - containerPort: 5000
