@@ -18,4 +18,4 @@ spec:
         - name: vitestmart
           image: mangeshgot/vitestmart:1.0
           ports:
-            - containerPort: 5173
+            - containerPort: 5000
