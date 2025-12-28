@@ -1,0 +1,47 @@
+# Dependencies
+node_modules
+npm-debug.log
+package-lock.json
+
+# Build outputs
+client/dist
+client/build
+server/public
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+server/.env
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Testing
+coverage
+.nyc_output
+
+# Misc
+README.md
+.editorconfig
+.eslintrc
+.prettierrc

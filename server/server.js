@@ -21,9 +21,22 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/settings', require('./routes/settingsRoutes'));
 
-app.get('/', (req, res) => {
-    res.send('API is running...');
-});
+// Serve static files in production
+if (process.env.NODE_ENV === 'production') {
+    const path = require('path');
+
+    // Serve static files from the public directory
+    app.use(express.static(path.join(__dirname, 'public')));
+
+    // Handle client-side routing - serve index.html for all non-API routes
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    });
+} else {
+    app.get('/', (req, res) => {
+        res.send('API is running...');
+    });
+}
 
 const PORT = process.env.PORT || 5000;
 
