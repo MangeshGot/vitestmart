@@ -17,8 +17,10 @@ spec:
       containers:
         - name: vitestmart
           image: mangeshgot/vitestmart:1.0
+          env:
+            - name: MONGODB_URI
+              value: "mongodb+srv://mangeshforstudy_db_user:sNdbqYh89gmYIg8L@cluster0.cukhoit.mongodb.net/?appName=Cluster0"
+            - name: PORT
+              value: "5000"
           ports:
             - containerPort: 5000
-          envFrom:
-            - configMapRef:
-                name: mongodb-configmap
