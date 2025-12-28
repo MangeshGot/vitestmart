@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: vitestmart
-          image: mangeshgot/vitestmart:1.0
+          image: mangeshgot/vitestmart:1.1
           ports:
             - containerPort: 5000
           env:
